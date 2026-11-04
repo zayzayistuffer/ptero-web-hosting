@@ -1,5 +1,4 @@
-#!/bin/bash
-sleep 1
+#!/bin/ash
 
 cd /home/container
 
@@ -18,13 +17,6 @@ if [ ! -d /home/container/public_html ]; then
     echo "[Entrypoint] Copying default files..."
     cp -r /usr/local/default_files/public_html /home/container
 fi
-
-# Replace Startup Variables
-MODIFIED_STARTUP=`eval echo $(echo ${STARTUP} | sed -e 's/{{/${/g' -e 's/}}/}/g')`
-echo ":/home/container$ ${MODIFIED_STARTUP}"
-
-# Run the Server
-${MODIFIED_STARTUP}
 
 echo "Starting Redis..."
 redis-server --daemonize yes

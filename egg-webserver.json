@@ -10,10 +10,10 @@
     "description": "A clean, lightweight Pterodactyl egg for running Apache-based PHP web hosting with a minimal, reliable setup.",
     "features": null,
     "docker_images": {
-        "jamie666\/pterodactyl-webserver:latest": "jamie666\/pterodactyl-webserver:latest"
+        "zayzayistuffer\/pterodactyl-webserver:latest": "zayzayistuffer\/pterodactyl-webserver:latest"
     },
     "file_denylist": [],
-    "startup": "{{STARTUP_CMD}}",
+    "startup": "/bin/ash /entrypoint.sh",
     "config": {
         "files": "{}",
         "startup": "{\r\n    \"done\": \"\",\r\n    \"userInteraction\": []\r\n}",
@@ -22,21 +22,10 @@
     },
     "scripts": {
         "installation": {
-            "script": "#!\/bin\/ash",
+            "script": "#!\/bin\/ash\nset -eu\n\nmkdir -p /mnt/server/public_html\ncd /mnt/server\n\nif [ ! -f public_html/index.php ]; then\n    cat > public_html/index.php <<'PHP'\n<?php\nhttp_response_code(200);\necho 'Your web server is ready. Upload your site files to public_html.';\nPHP\nfi\n\necho 'Web server installation complete.'",
             "container": "alpine:latest",
             "entrypoint": "ash"
         }
     },
-    "variables": [
-        {
-            "name": "Startup Command",
-            "description": "The command to start",
-            "env_variable": "STARTUP_CMD",
-            "default_value": "",
-            "user_viewable": true,
-            "user_editable": true,
-            "rules": "present",
-            "field_type": "text"
-        }
-    ]
+    "variables": []
 }

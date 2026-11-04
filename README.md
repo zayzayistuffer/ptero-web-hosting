@@ -32,8 +32,20 @@ It keeps the container lean while still being practical for common PHP workloads
 
 1. Import the egg into Pterodactyl.
 2. Create a new server using this egg.
-3. Upload your web application files.
+3. Upload your web application files to `public_html`. The installer creates a starter `index.php` if one is not already present.
 4. Put your site behind a reverse proxy or frontend server if you need domain routing and HTTPS.
+
+The Apache and PHP runtime is provided by the configured Docker image; the egg installer initializes the server's web-root files.
+
+Before starting a server, create a public Docker Hub repository named `pterodactyl-webserver` under `zayzayistuffer`, then build and push this image:
+
+```sh
+docker login -u zayzayistuffer
+docker build -t zayzayistuffer/pterodactyl-webserver:latest .
+docker push zayzayistuffer/pterodactyl-webserver:latest
+```
+
+The egg pulls `zayzayistuffer/pterodactyl-webserver:latest`; the repository must exist and be public, or the node will continue to report a pull-access-denied error.
 
 > ⚠️ This egg does not provide automatic HTTPS or routing management on its own. For production exposure, pair it with Nginx or another reverse proxy with TLS termination.
 
