@@ -6,11 +6,11 @@
     },
     "exported_at": "2025-06-14T15:29:01+02:00",
     "name": "Webserver",
-    "author": "hello@stromic.dev",
-    "description": "A lightweight Pterodactyl egg for running a basic web server using Apache. Perfect for hosting static sites or PHP-based applications with minimal setup.",
+    "author": "xbkxminit2winit@gmail.com",
+    "description": "A clean, lightweight Pterodactyl egg for running Apache-based PHP web hosting with a minimal, reliable setup.",
     "features": null,
     "docker_images": {
-        "stromic\/pterodactyl-webserver:latest": "stromic\/pterodactyl-webserver:latest"
+        "jamie666\/pterodactyl-webserver:latest": "jamie666\/pterodactyl-webserver:latest"
     },
     "file_denylist": [],
     "startup": "{{STARTUP_CMD}}",

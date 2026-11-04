@@ -1,55 +1,56 @@
 # 🦖 Minimalist Pterodactyl Egg for Web Hosting
 
-This is a simple, no-frills Pterodactyl Egg built for hosting PHP websites. It uses Apache with PHP-FPM on a lightweight Alpine Linux base. The goal? Keep things minimal, fast, and easy to use.
+This project provides a lightweight Apache + PHP-FPM environment for running PHP-based websites in a Pterodactyl panel. It is intentionally small, fast, and easy to customize.
 
 ---
 
-## What’s inside?
+## Included
 
-- Apache as the web server  
-- PHP-FPM for handling PHP scripts  
-- Alpine Linux as the base image (small and efficient)  
-- A clean setup focused on just what you need — nothing more
-
----
-
-## Why use this egg?
-
-If you want a straightforward environment to run PHP sites without extra bloat, this egg’s for you. It’s perfect if you’re into keeping your containers lean and fast, and just want a reliable stack that works out of the box.
+- Apache web server
+- PHP-FPM for PHP execution
+- Alpine Linux base image for a small footprint
+- Simple, production-friendly defaults
 
 ---
 
-## Use cases
+## Why this setup works well
 
-This egg works great for running PHP-based applications like:
-
-- **WordPress**  
-- **Laravel**  
-- Custom PHP sites  
-- Lightweight CMS or static site generators with PHP backends
+It keeps the container lean while still being practical for common PHP workloads. This makes it a good fit for small websites, custom PHP apps, and lightweight CMS setups without the overhead of a larger stack.
 
 ---
 
-## Getting started
+## Typical use cases
 
-1. Import the egg into your Pterodactyl panel.  
-2. Create a new server using this egg.  
-3. Upload your PHP application.  
-4. Set up an Nginx reverse proxy on your host machine or another server to expose the app to the internet under your domain.
+- WordPress
+- Laravel
+- Custom PHP applications
+- Static or semi-dynamic sites that run via PHP
 
-> ⚠️ **Note:** This egg does not handle HTTPS or domain routing on its own. You’ll need to set up an external Nginx reverse proxy with SSL (e.g., using Let's Encrypt) to serve your site securely over a domain.
+---
+
+## Quick start
+
+1. Import the egg into Pterodactyl.
+2. Create a new server using this egg.
+3. Upload your web application files.
+4. Put your site behind a reverse proxy or frontend server if you need domain routing and HTTPS.
+
+> ⚠️ This egg does not provide automatic HTTPS or routing management on its own. For production exposure, pair it with Nginx or another reverse proxy with TLS termination.
 
 ---
 
 ## Notes
 
-- This egg is minimal by design. If you need databases, caching, or other services, you’ll want to add those separately.  
-- Configuration files are easy to access and tweak if you need to make changes.
+- The stack is intentionally minimal.
+- Additional services such as databases, caching, or background workers should be added separately.
+- The configuration files are straightforward to adjust if you need custom behavior.
+
+Maintained by: xbkxminit2winit@gmail.com
 
 ---
 
-## Contributions
+## Contributing
 
-If you find bugs or have ideas to improve this egg, feel free to open an issue or submit a pull request!
+If you have a fix or an idea to improve the setup, feel free to open an issue or submit a pull request.
 
 ---
